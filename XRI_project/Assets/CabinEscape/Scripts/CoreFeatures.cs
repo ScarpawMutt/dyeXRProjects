@@ -4,14 +4,6 @@ This is the script for core features */
 
 using UnityEngine;
 
-public enum FeatureUsage
-{
-
-    Once, // Use once
-    Toggle // Use more than once
-
-}
-
 public class CoreFeatures : MonoBehaviour
 {
 

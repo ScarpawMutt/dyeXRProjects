@@ -57,8 +57,6 @@ public class DoorFeatures : CoreFeatures
 
         });
 
-        OpenDoor(); // REMOVE THIS
-
     }
 
     public void OpenDoor()
@@ -78,30 +76,35 @@ public class DoorFeatures : CoreFeatures
     private IEnumerator ProcessMotion()
     {
 
-        var angle = door_pivot.localEulerAngles.y < 180 ? door_pivot.localEulerAngles.y : door_pivot.localEulerAngles.y - 360;
-        angle = reverse_angle_direction ? Mathf.Abs(angle) : angle;
-
-        if (angle <= max_angle)
+        while (door_is_open)
         {
 
-            door_pivot?.Rotate(Vector3.up, door_speed * Time.deltaTime * (reverse_angle_direction ? -1 : 1));
+            var angle = door_pivot.localEulerAngles.y < 180 ? door_pivot.localEulerAngles.y : door_pivot.localEulerAngles.y - 360;
+            angle = reverse_angle_direction ? Mathf.Abs(angle) : angle;
 
-        }
-        else
-        {
-
-            door_is_open = false;
-            var feature_rigidbody = GetComponent<Rigidbody>();
-            if (feature_rigidbody != null && make_kinematic_on_open)
+            if (angle <= max_angle)
             {
 
-                feature_rigidbody.isKinematic = true;
+                door_pivot?.Rotate(Vector3.up, door_speed * Time.deltaTime * (reverse_angle_direction ? -1 : 1));
+
+            }
+            else
+            {
+
+                door_is_open = false;
+                var feature_rigidbody = GetComponent<Rigidbody>();
+                if (feature_rigidbody != null && make_kinematic_on_open)
+                {
+
+                    feature_rigidbody.isKinematic = true;
+
+                }
 
             }
 
-        }
+            yield return null;
 
-        yield return null;
+        }
 
     }    
 
