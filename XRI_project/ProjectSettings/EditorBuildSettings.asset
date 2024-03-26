@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/20240125.unity
     guid: 47d99866c3b588243bb5caecacd611c9
+  - enabled: 1
+    path: Assets/Scenes/CabinEscape.unity
+    guid: 431ef9e265d0fc64f8d1931c9b2b5e33
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5106de20db963034d982330ad6dda66a, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4c0c652add1be054a902e9b193b2f611, type: 2}

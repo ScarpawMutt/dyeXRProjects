@@ -17,3 +17,12 @@ public enum FeatureDirection
     Backward
 
 }
+
+public enum GameState
+{
+
+    Playing,
+    Paused,
+    PuzzleSolved
+
+}
